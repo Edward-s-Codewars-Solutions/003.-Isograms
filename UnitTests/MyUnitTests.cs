@@ -4,7 +4,7 @@ using System.Collections.Generic;
 [TestFixture]
 public class MyUnitTests
 {
-    private static IEnumerable<TestCaseData> testCases
+    private static IEnumerable<TestCaseData> testCasesForValidation
     {
         get
         {
@@ -25,7 +25,23 @@ public class MyUnitTests
         }
     }
 
-    [Test, TestCaseSource("testCases")]
+    [Test, TestCaseSource("testCasesForValidation")]
     public bool Are_words_validated_correctly(string str) =>
         StringHelper.IsValidWord(str);
+
+    private static IEnumerable<TestCaseData> testCasesForDistinctLetters
+    {
+        get
+        {
+            yield return new TestCaseData("abcd").Returns(true);
+            yield return new TestCaseData("aabcd").Returns(false);
+            yield return new TestCaseData("qQdsa").Returns(false);
+            yield return new TestCaseData("aAbCd").Returns(false);
+            yield return new TestCaseData("xyzasdf").Returns(true);
+        }
+    }
+
+    [Test, TestCaseSource("testCasesForDistinctLetters")]
+    public bool Are_letter_distinction_tested_correctly(string str) =>
+        StringHelper.HasNoRepeatingCharacters(str);
 }
