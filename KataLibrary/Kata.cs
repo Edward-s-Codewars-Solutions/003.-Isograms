@@ -14,13 +14,11 @@ public class Kata
 {
     public static bool IsIsogram(string word)
     {
-        if (StringHelper.IsValidWord(word) == false)
-            return false;
+        bool output = 
+            StringHelper.IsValidWord(word) && 
+            StringHelper.HasNoRepeatingCharacters(word);
 
-        if (StringHelper.HasNoRepeatingCharacters(word))
-            return false;
-
-        return true;
+        return output;
     }
 }
 
