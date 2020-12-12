@@ -7,6 +7,7 @@
 // isIsogram "moOse" == false-- ignore letter case
 
 using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 public class Kata
@@ -16,7 +17,7 @@ public class Kata
         if (StringHelper.IsValidWord(word) == false)
             return false;
 
-        if (StringHelper.HasRepeatingCharacters(word))
+        if (StringHelper.HasNoRepeatingCharacters(word))
             return false;
 
         return true;
@@ -32,8 +33,17 @@ public static class StringHelper
         return output;
     }
 
-    internal static bool HasRepeatingCharacters(string word)
+    public static bool HasNoRepeatingCharacters(string word)
     {
-        throw new NotImplementedException();
+        char[] wordAsCharArray = word
+            .ToUpper()
+            .ToCharArray();
+        char[] wordAsDistinctCharArray = wordAsCharArray
+            .Distinct()
+            .ToArray();
+
+        bool output = wordAsCharArray.Length == wordAsDistinctCharArray.Length;
+
+        return output;
     }
 }
