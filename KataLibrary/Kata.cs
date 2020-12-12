@@ -6,9 +6,6 @@
 // isIsogram "aba" == false
 // isIsogram "moOse" == false-- ignore letter case
 
-using System.Linq;
-using System.Text.RegularExpressions;
-
 public class Kata
 {
     public static bool IsIsogram(string word)
@@ -16,30 +13,6 @@ public class Kata
         bool output = 
             StringHelper.IsValidWord(word) && 
             StringHelper.HasNoRepeatingCharacters(word);
-
-        return output;
-    }
-}
-
-public static class StringHelper
-{
-    public static bool IsValidWord(string word)
-    {
-        string pattern = "^[A-Za-z]*$";
-        bool output = Regex.IsMatch(word, pattern);
-        return output;
-    }
-
-    public static bool HasNoRepeatingCharacters(string word)
-    {
-        char[] wordAsCharArray = word
-            .ToUpper()
-            .ToCharArray();
-        char[] wordAsDistinctCharArray = wordAsCharArray
-            .Distinct()
-            .ToArray();
-
-        bool output = wordAsCharArray.Length == wordAsDistinctCharArray.Length;
 
         return output;
     }
