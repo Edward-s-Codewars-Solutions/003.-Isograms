@@ -3,15 +3,17 @@
 using KataLibrary;
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace UnitTests
 {
     [TestFixture]
     public class BasicTests
     {
-        [Test, TestCaseSource("testCases")]
+        [Test, TestCaseSource("TestCases")]
         public bool Test(string str) => Kata.IsIsogram(str);
 
+        [SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "It is used by UT method")]
         private static IEnumerable<TestCaseData> TestCases
         {
             get
