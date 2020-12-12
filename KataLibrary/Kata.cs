@@ -6,14 +6,17 @@
 // isIsogram "aba" == false
 // isIsogram "moOse" == false-- ignore letter case
 
-public static class Kata
+namespace KataLibrary
 {
-    public static bool IsIsogram(string word)
+    public static class Kata
     {
-        bool output = 
-            StringHelper.IsValidWord(word) && 
-            StringHelper.HasNoRepeatingCharacters(word);
+        public static bool IsIsogram(string word)
+        {
+            bool output =
+                StringHelper.IsValidWord(word) &&
+                StringHelper.HasNoRepeatingCharacters(word);
 
-        return output;
+            return output;
+        }
     }
 }
