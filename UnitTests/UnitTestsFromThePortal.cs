@@ -12,7 +12,7 @@ namespace UnitTests
         [Test, TestCaseSource("testCases")]
         public bool Test(string str) => Kata.IsIsogram(str);
 
-        private static IEnumerable<TestCaseData> testCases
+        private static IEnumerable<TestCaseData> TestCases
         {
             get
             {
