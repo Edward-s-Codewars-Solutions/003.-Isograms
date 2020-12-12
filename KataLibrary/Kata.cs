@@ -16,9 +16,10 @@ public class Kata
         if (StringHelper.IsValidWord(word) == false)
             return false;
 
+        if (StringHelper.HasRepeatingCharacters(word))
+            return false;
 
-
-        throw new NotImplementedException();
+        return true;
     }
 }
 
@@ -29,5 +30,10 @@ public static class StringHelper
         string pattern = "^[A-Za-z]*$";
         bool output = Regex.IsMatch(word, pattern);
         return output;
+    }
+
+    internal static bool HasRepeatingCharacters(string word)
+    {
+        throw new NotImplementedException();
     }
 }
