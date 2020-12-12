@@ -8,11 +8,11 @@ namespace UnitTests
     [TestFixture]
     public class MyUnitTests
     {
-        [Test, TestCaseSource("testCasesForValidation")]
+        [Test, TestCaseSource("TestCasesForValidation")]
         public bool Are_words_validated_correctly(string str) =>
             StringHelper.IsValidWord(str);
 
-        [Test, TestCaseSource("testCasesForDistinctLetters")]
+        [Test, TestCaseSource("TestCasesForDistinctLetters")]
         public bool Are_letter_distinction_tested_correctly(string str) =>
             StringHelper.HasNoRepeatingCharacters(str);
 
