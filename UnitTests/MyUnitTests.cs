@@ -5,7 +5,7 @@ using System.Collections.Generic;
 [TestFixture]
 public class MyUnitTests
 {
-    private static IEnumerable<TestCaseData> testCasesForValidation
+    private static IEnumerable<TestCaseData> TestCasesForValidation
     {
         get
         {
@@ -30,7 +30,7 @@ public class MyUnitTests
     public bool Are_words_validated_correctly(string str) =>
         StringHelper.IsValidWord(str);
 
-    private static IEnumerable<TestCaseData> testCasesForDistinctLetters
+    private static IEnumerable<TestCaseData> TestCasesForDistinctLetters
     {
         get
         {
