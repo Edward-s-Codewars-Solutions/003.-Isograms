@@ -5,6 +5,14 @@ using System.Collections.Generic;
 [TestFixture]
 public class MyUnitTests
 {
+    [Test, TestCaseSource("testCasesForValidation")]
+    public bool Are_words_validated_correctly(string str) =>
+        StringHelper.IsValidWord(str);
+
+    [Test, TestCaseSource("testCasesForDistinctLetters")]
+    public bool Are_letter_distinction_tested_correctly(string str) =>
+        StringHelper.HasNoRepeatingCharacters(str);
+
     private static IEnumerable<TestCaseData> TestCasesForValidation
     {
         get
@@ -26,10 +34,6 @@ public class MyUnitTests
         }
     }
 
-    [Test, TestCaseSource("testCasesForValidation")]
-    public bool Are_words_validated_correctly(string str) =>
-        StringHelper.IsValidWord(str);
-
     private static IEnumerable<TestCaseData> TestCasesForDistinctLetters
     {
         get
@@ -41,8 +45,4 @@ public class MyUnitTests
             yield return new TestCaseData("xyzasdf").Returns(true);
         }
     }
-
-    [Test, TestCaseSource("testCasesForDistinctLetters")]
-    public bool Are_letter_distinction_tested_correctly(string str) =>
-        StringHelper.HasNoRepeatingCharacters(str);
 }
