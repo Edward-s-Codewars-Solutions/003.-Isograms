@@ -6,7 +6,6 @@
 // isIsogram "aba" == false
 // isIsogram "moOse" == false-- ignore letter case
 
-using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 
