@@ -4,25 +4,28 @@ using KataLibrary;
 using NUnit.Framework;
 using System.Collections.Generic;
 
-[TestFixture]
-public class BasicTests
+namespace UnitTests
 {
-
-    private static IEnumerable<TestCaseData> testCases
+    [TestFixture]
+    public class BasicTests
     {
-        get
-        {
-            yield return new TestCaseData("Dermatoglyphics").Returns(true);
-            yield return new TestCaseData("isogram").Returns(true);
-            yield return new TestCaseData("moose").Returns(false);
-            yield return new TestCaseData("isIsogram").Returns(false);
-            yield return new TestCaseData("aba").Returns(false);
-            yield return new TestCaseData("moOse").Returns(false);
-            yield return new TestCaseData("thumbscrewjapingly").Returns(true);
-            yield return new TestCaseData("").Returns(true);
-        }
-    }
 
-    [Test, TestCaseSource("testCases")]
-    public bool Test(string str) => Kata.IsIsogram(str);
+        private static IEnumerable<TestCaseData> testCases
+        {
+            get
+            {
+                yield return new TestCaseData("Dermatoglyphics").Returns(true);
+                yield return new TestCaseData("isogram").Returns(true);
+                yield return new TestCaseData("moose").Returns(false);
+                yield return new TestCaseData("isIsogram").Returns(false);
+                yield return new TestCaseData("aba").Returns(false);
+                yield return new TestCaseData("moOse").Returns(false);
+                yield return new TestCaseData("thumbscrewjapingly").Returns(true);
+                yield return new TestCaseData("").Returns(true);
+            }
+        }
+
+        [Test, TestCaseSource("testCases")]
+        public bool Test(string str) => Kata.IsIsogram(str);
+    }
 }
