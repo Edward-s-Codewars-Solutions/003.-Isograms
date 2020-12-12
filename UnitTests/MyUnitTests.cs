@@ -1,6 +1,7 @@
 ﻿using KataLibrary;
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 [TestFixture]
 public class MyUnitTests
@@ -13,6 +14,7 @@ public class MyUnitTests
     public bool Are_letter_distinction_tested_correctly(string str) =>
         StringHelper.HasNoRepeatingCharacters(str);
 
+    [SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "It is used by UT method")]
     private static IEnumerable<TestCaseData> TestCasesForValidation
     {
         get
@@ -34,6 +36,7 @@ public class MyUnitTests
         }
     }
 
+    [SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "It is used by UT method")]
     private static IEnumerable<TestCaseData> TestCasesForDistinctLetters
     {
         get
