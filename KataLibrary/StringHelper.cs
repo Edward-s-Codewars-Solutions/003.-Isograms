@@ -1,26 +1,29 @@
 ﻿using System.Linq;
 using System.Text.RegularExpressions;
 
-public static class StringHelper
+namespace KataLibrary
 {
-    public static bool IsValidWord(string word)
+    public static class StringHelper
     {
-        string pattern = "^[A-Za-z]*$";
-        bool output = Regex.IsMatch(word, pattern);
-        return output;
-    }
+        public static bool IsValidWord(string word)
+        {
+            string pattern = "^[A-Za-z]*$";
+            bool output = Regex.IsMatch(word, pattern);
+            return output;
+        }
 
-    public static bool HasNoRepeatingCharacters(string word)
-    {
-        char[] wordAsCharArray = word
-            .ToUpper()
-            .ToCharArray();
-        char[] wordAsDistinctCharArray = wordAsCharArray
-            .Distinct()
-            .ToArray();
+        public static bool HasNoRepeatingCharacters(string word)
+        {
+            char[] wordAsCharArray = word
+                .ToUpper()
+                .ToCharArray();
+            char[] wordAsDistinctCharArray = wordAsCharArray
+                .Distinct()
+                .ToArray();
 
-        bool output = wordAsCharArray.Length == wordAsDistinctCharArray.Length;
+            bool output = wordAsCharArray.Length == wordAsDistinctCharArray.Length;
 
-        return output;
+            return output;
+        }
     }
 }
