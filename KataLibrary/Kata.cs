@@ -14,7 +14,9 @@ public class Kata
     public static bool IsIsogram(string word)
     {
         if (StringHelper.IsValidWord(word) == false)
-            throw new Exception("The provided word is invalid.");
+            return false;
+
+
 
         throw new NotImplementedException();
     }
