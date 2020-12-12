@@ -6,7 +6,7 @@
 // isIsogram "aba" == false
 // isIsogram "moOse" == false-- ignore letter case
 
-public class Kata
+public static class Kata
 {
     public static bool IsIsogram(string word)
     {
