@@ -9,6 +9,8 @@ namespace UnitTests
     [TestFixture]
     public class BasicTests
     {
+        [Test, TestCaseSource("testCases")]
+        public bool Test(string str) => Kata.IsIsogram(str);
 
         private static IEnumerable<TestCaseData> testCases
         {
@@ -24,8 +26,5 @@ namespace UnitTests
                 yield return new TestCaseData("").Returns(true);
             }
         }
-
-        [Test, TestCaseSource("testCases")]
-        public bool Test(string str) => Kata.IsIsogram(str);
     }
 }
